@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1286.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="locationdevoiture.LoginController">
+   <children>
+      <ImageView fitHeight="257.0" fitWidth="1288.0" layoutY="-1.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../images/bgLogin.JPG" />
+         </image>
+      </ImageView>
+      <Pane layoutX="353.0" layoutY="165.0" prefHeight="333.0" prefWidth="564.0" style="-fx-background-color: white; -fx-background-radius: 5px;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="187.0" layoutY="22.0" text="Connectez-vous!">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <JFXTextField layoutX="143.0" layoutY="116.0" maxWidth="274.0" minWidth="237.0" prefHeight="31.0" prefWidth="274.0" promptText="Nom d'utilisateur" />
+            <JFXPasswordField layoutX="145.0" layoutY="167.0" maxWidth="276.0" minWidth="159.0" prefHeight="31.0" prefWidth="276.0" promptText="Mot de passe" />
+            <JFXButton layoutX="226.0" layoutY="238.0" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #2262C6;" text="Se connecter" textFill="WHITE" />
+            <Hyperlink layoutX="290.0" layoutY="197.0" text="Mot de passe oublié ?" />
+            <ImageView fitHeight="26.0" fitWidth="19.0" layoutX="125.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/password.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="19.0" layoutX="125.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user%20(2).png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2e5e8" height="26.0" layoutX="-1.0" layoutY="658.0" stroke="WHITE" strokeType="INSIDE" width="1286.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="516.0" layoutY="661.0" text="Location de voitures© Tous droits réservés - 2020" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="564.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logol.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

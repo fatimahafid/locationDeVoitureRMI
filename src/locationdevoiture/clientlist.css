@@ -1,0 +1,39 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+    
+}
+
+.bg{
+      -fx-background-image:url("../images/bg.jpg");
+}
+.nav{
+      -fx-background-color: #25273a;
+}
+
+  .table{
+       -fx-background-color: white; 
+       -fx-border-color : linear-gradient(to left, #1060c6, #55a1f7);
+  }
+  
+  .input{
+             -fx-background-color: lightgray; 
+
+  }
+  .inputbg{
+      -fx-background-color:lightgrey ; 
+            -fx-background-radius: 10 50 10 50 ;
+
+  }
+  .tablebg{
+      -fx-background-color:lightgrey ; 
+      
+  }
+  
+  .footer{
+             -fx-background-color: linear-gradient(to top,#25273a, white);
+
+  }

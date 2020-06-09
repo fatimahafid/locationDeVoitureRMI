@@ -1,0 +1,94 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    
+}
+.bluarea{
+-fx-background-color:linear-gradient(to right , #4876bd, #365899, #233c77, #0e2156, #000437);
+      
+      -fx-background-radius: 0px 0px 85px 0px;
+ -fx-border-radius:  0px 0px 85px 0px;
+-fx-border-width: 0 5 5 0;
+-fx-border-color:white;
+    
+    }
+    .rightsidetop{
+           -fx-background-radius: 0px 0px 85px 0px;
+           -fx-background-color: linear-gradient(to right , #4876bd, #365899, #233c77, #0e2156, #000437);
+    -fx-border-radius:  0px 0px 85px 0px;
+-fx-border-width: 0 5 5 0;
+-fx-border-color:white;
+
+    }
+    .sidebardown{
+           -fx-background-radius:  0px 75px 0px 0px;
+           -fx-background-color: white;
+
+
+    }
+    
+    .buttonmenu{
+        
+         -fx-background-color: white;
+         
+
+             
+        
+    }
+
+    .bg{
+        
+      -fx-background-color:white;
+       -fx-border-width: 0 0 5 0;
+-fx-border-color:linear-gradient(to top , #4876bd, #365899, #233c77, #0e2156, #000437);
+    }
+    
+    .sidebartop{
+ -fx-background-color: linear-gradient(to top , #4876bd, #365899, #233c77, #0e2156, #000437);
+   -fx-background-radius: 0px 0px 75px 0px;
+
+    -fx-border-radius: 50px 25px 50px 25px;}
+    .sidebar{
+            -fx-background-color:white;
+  
+    }
+    .border{
+    -fx-background-color: linear-gradient(to right , #4876bd, #365899, #233c77, #0e2156, #000437);
+   -fx-background-radius: 0px 25px 25px 0px;
+    }
+    
+    .menuarea {
+         -fx-background-color:white;
+          -fx-border-width: 0 0 1 0;
+-fx-border-color:lavender;
+    }
+    
+    
+    .barsearch{
+                    -fx-background-color:white ;
+                       -fx-background-radius: 25px 95px 25px 25px;
+
+
+    }
+    .table-view{
+        
+        -fx-background-color:white ;
+        -fx-background-radius: 0px 0px 25px 25px;
+    }
+    
+    .table-view .column-header, .table-view .filler {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-color:white;
+   -fx-size:60;
+   -fx-border-width:0 0 3 0;
+   -fx-border-color:linear-gradient(to bottom , #4876bd, #365899, #233c77, #0e2156, #000437);
+    
+}
+.table-view .column-header .label{
+        
+        -fx-text-fill:#4876bd;
+        -fx-font-size:14;
+    }

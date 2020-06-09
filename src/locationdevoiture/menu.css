@@ -1,0 +1,54 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    
+}
+.bluarea{
+ -fx-background-radius: 0px 85px 85px 0px;
+           -fx-background-color: linear-gradient(to right , #4876bd, #365899, #233c77, #0e2156, #000437);
+
+    
+    }
+    .bluarea2{
+ -fx-background-radius:  0px 0px 0px 85px ;
+           -fx-background-color: linear-gradient(to right , #4876bd, #365899, #233c77, #0e2156, #000437);
+
+    
+    }
+    
+    .buttonmenu{
+        
+         -fx-background-color: white;
+         -fx-background-radius: 50;
+         -fx-border-radius:  50;
+-fx-border-width: 4;
+-fx-text-fill:linear-gradient(to right , #4876bd, #365899, #233c77, #0e2156, #000437);
+    
+             
+        
+    }
+
+    .bg{
+        
+        -fx-background-color: white;
+       
+    }
+  .menubg{
+        
+        -fx-background-color: white;
+       -fx-background-radius: 0px 300px  0px 0px  ;
+    }
+    
+    .blubutton{
+        
+         -fx-background-color: linear-gradient(to top , #4876bd, #365899, #233c77, #0e2156, #000437);
+         
+    }
+    
+    .labelbg{
+         -fx-background-color: white;
+       -fx-background-radius: 0px 0px 300px   0px  ;
+        
+    }
