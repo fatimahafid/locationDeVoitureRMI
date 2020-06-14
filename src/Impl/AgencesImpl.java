@@ -43,24 +43,26 @@ public class AgencesImpl extends UnicastRemoteObject implements Agences {
         return em;
     }
 
-    @Override
+//    @Override
+//
+//    public List<Agence> findAll() {
+//        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+//        cq.select(cq.from(entityClass));
+//        return getEntityManager().createQuery(cq).getResultList();
+//    }
     
-      public List<Agence> findAll() {
-        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
-        cq.select(cq.from( entityClass ));
-        return getEntityManager().createQuery(cq).getResultList();
+    @Override
+    public List<Agence> findAll() {
+     
+       return getEntityManager().createQuery("SELECT a.nom FROM Agence a").getResultList();
+     
     }
-       @Override
+
+    @Override
     public Agence findByNom(String nom) {
         return (Agence) getEntityManager().createQuery("SELECT a FROM Agence a WHERE a.nom='" + nom + "'").getResultList().get(0);
     }
-    
-     @Override
-    public String getNom() throws RemoteException {
 
- List<Agence> agences =getEntityManager().createQuery("select a from Agence a ").getResultList();
 
-        return agences.get(0).getNom();
-    }
-
+   
 }
