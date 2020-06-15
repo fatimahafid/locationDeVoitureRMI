@@ -5,7 +5,9 @@
  */
 package bean;
 
+import com.jfoenix.controls.JFXButton;
 import java.io.Serializable;
+import javafx.fxml.FXML;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,6 +35,9 @@ public class Utilisateur implements Serializable {
     private boolean isAgent;
     @ManyToOne
     private Agence agence;
+
+   
+  
     
 
     public Long getId() {
@@ -110,7 +115,8 @@ public class Utilisateur implements Serializable {
     public Utilisateur() {
     }
 
-    public Utilisateur(String login, String mdp, String nom, String prenom, String email, String tel, boolean isAgent, Agence agence) {
+    public Utilisateur( String login, String mdp, String nom, String prenom, String email, String tel, boolean isAgent, Agence agence) {
+       
         this.login = login;
         this.mdp = mdp;
         this.nom = nom;
@@ -119,7 +125,15 @@ public class Utilisateur implements Serializable {
         this.tel = tel;
         this.isAgent = isAgent;
         this.agence = agence;
+  
     }
+
+    public Utilisateur(Long id) {
+        this.id = id;
+    }
+    
+    
+   
     
     
     

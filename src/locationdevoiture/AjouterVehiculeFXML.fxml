@@ -91,23 +91,23 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="nomTextField" layoutX="139.0" layoutY="123.0" maxWidth="304.0" minWidth="205.0" prefHeight="35.0" prefWidth="304.0" promptText="Num Immatriculation">
+                        <JFXTextField fx:id="immTf" layoutX="139.0" layoutY="123.0" maxWidth="304.0" minWidth="205.0" prefHeight="35.0" prefWidth="304.0" promptText="Num Immatriculation">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="nomTextField1" layoutX="140.0" layoutY="216.0" maxWidth="304.0" minWidth="205.0" prefHeight="35.0" prefWidth="304.0" promptText="Kilométrage">
+                        <JFXTextField fx:id="kmTf" layoutX="140.0" layoutY="216.0" maxWidth="304.0" minWidth="205.0" prefHeight="35.0" prefWidth="304.0" promptText="Kilométrage">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="nomTextField11" layoutX="141.0" layoutY="300.0" maxWidth="304.0" minWidth="205.0" prefHeight="35.0" prefWidth="304.0" promptText="Prix">
+                        <JFXTextField fx:id="prixTf" layoutX="141.0" layoutY="300.0" maxWidth="304.0" minWidth="205.0" prefHeight="35.0" prefWidth="304.0" promptText="Prix">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </JFXTextField>
-                        <JFXDatePicker defaultColor="#0c2751" layoutX="651.0" layoutY="221.0" prefHeight="31.0" prefWidth="301.0" promptText="Date mise en circulation" />
-                        <JFXButton layoutX="768.0" layoutY="406.0" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #2262C6;" text="Ajouter" textFill="WHITE" />
+                        <JFXDatePicker fx:id="datemisecirDp" defaultColor="#0c2751" layoutX="651.0" layoutY="221.0" prefHeight="31.0" prefWidth="301.0" promptText="Date mise en circulation" />
+                        <JFXButton fx:id="ajouterBtn" layoutX="768.0" layoutY="406.0" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #2262C6;" text="Ajouter" textFill="WHITE" />
                         <ImageView fitHeight="26.0" fitWidth="19.0" layoutX="121.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/car.png" />
@@ -138,14 +138,14 @@
                               <Image url="@../images/vtr.png" />
                            </image>
                         </ImageView>
-                        <JFXComboBox layoutX="657.0" layoutY="123.0" prefHeight="25.0" prefWidth="295.0" promptText="Modèle" />
-                        <JFXComboBox layoutX="660.0" layoutY="304.0" prefHeight="25.0" prefWidth="295.0" promptText="Etat" />
+                        <JFXComboBox fx:id="modeleCb" layoutX="657.0" layoutY="123.0" prefHeight="25.0" prefWidth="295.0" promptText="Modèle" />
+                        <JFXComboBox fx:id="etatCb" layoutX="660.0" layoutY="304.0" prefHeight="25.0" prefWidth="295.0" promptText="Etat" />
                         <ImageView fitHeight="26.0" fitWidth="19.0" layoutX="121.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/speed.png" />
                            </image>
                         </ImageView>
-                        <JFXComboBox layoutX="149.0" layoutY="383.0" prefHeight="25.0" prefWidth="295.0" promptText="Carburant" />
+                        <JFXComboBox fx:id="carCb" layoutX="149.0" layoutY="383.0" prefHeight="25.0" prefWidth="295.0" promptText="Carburant" />
                      </children>
                   </AnchorPane>
                </children>

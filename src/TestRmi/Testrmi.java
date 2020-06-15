@@ -7,7 +7,10 @@ package TestRmi;
 
 import Interfaces.Agences;
 import Interfaces.Clients;
+import Interfaces.Marques;
+import Interfaces.Modeles;
 import Interfaces.Utilisateurs;
+import Interfaces.Vehicules;
 
 import java.io.IOException;
 import java.rmi.Naming;
@@ -27,6 +30,9 @@ public class Testrmi extends Application {
     public static Clients od;
     public static Utilisateurs odUtilisateur;
     public static Agences odAgence;
+    public static Vehicules odVehicule;
+    public static Modeles odModele;
+    public static Marques odMarque;
   
     public static Clients getOd() {
         return od;
@@ -51,6 +57,30 @@ public class Testrmi extends Application {
     public static void setOdAgence(Agences odAgence) {
         Testrmi.odAgence = odAgence;
     }
+
+    public static Vehicules getOdVehicule() {
+        return odVehicule;
+    }
+
+    public static void setOdVehicule(Vehicules odVehicule) {
+        Testrmi.odVehicule = odVehicule;
+    }
+
+    public static Modeles getOdModele() {
+        return odModele;
+    }
+
+    public static void setOdModele(Modeles odModele) {
+        Testrmi.odModele = odModele;
+    }
+
+    public static Marques getOdMarque() {
+        return odMarque;
+    }
+
+    public static void setOdMarque(Marques odMarque) {
+        Testrmi.odMarque = odMarque;
+    }
     
     
 
@@ -61,7 +91,7 @@ public class Testrmi extends Application {
     public void start(Stage stage) throws IOException, RemoteException, NotBoundException {
       
      
-        Parent root = FXMLLoader.load(Testrmi.class.getClass().getResource("/locationdevoiture/AjouterUtilisateurFXML.fxml"));
+        Parent root = FXMLLoader.load(Testrmi.class.getClass().getResource("/locationdevoiture/VehiculeListFXML.fxml"));
       
         Scene scene = new Scene(root);
         
@@ -87,6 +117,18 @@ public class Testrmi extends Application {
             String url3="rmi://localhost/agencetest";
            odAgence = (Agences)Naming.lookup(url3);
             setOdAgence(odAgence);
+             //od vehicule
+            String url4="rmi://localhost/vehiculetest";
+           odVehicule = (Vehicules)Naming.lookup(url4);
+             setOdVehicule(odVehicule);
+             //od modele
+            String url5="rmi://localhost/modeletest";
+           odModele = (Modeles)Naming.lookup(url5);
+             setOdModele(odModele);
+             //od marque
+            String url6="rmi://localhost/marquetest";
+           odMarque = (Marques)Naming.lookup(url6);
+             setOdMarque(odMarque);
            
             launch(args);
         }

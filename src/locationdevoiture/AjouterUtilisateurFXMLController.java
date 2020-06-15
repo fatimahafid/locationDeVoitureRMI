@@ -89,11 +89,12 @@ public class AjouterUtilisateurFXMLController implements Initializable {
 
                     agence = odAgence.findByNom(agenceCb.getSelectionModel().getSelectedItem().toString());
                     Utilisateur utilisateur = new Utilisateur(loginTf.getText(), mdpPf.getText(), nomTf.getText(), prenomTf.getText(), emailTf.getText(), telTf.getText(), x, agence);
+                   
                     if (!mdpPf.getText().equals(cmdpPf.getText())) {
                         JOptionPane.showMessageDialog(null, "Erreur de confirmation Mot De Passe", "Error", JOptionPane.ERROR_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(null, "Inscription avec succée", "Bienvenue", JOptionPane.INFORMATION_MESSAGE);
-                        odUtilisateurs.create(utilisateur);
+                        odUtilisateurs.createUtilisateur(utilisateur);
                          Parent root;
                         try {
                             root = FXMLLoader.load(getClass().getClassLoader().getResource("locationdevoiture/UtilisateurListFXML.fxml"));

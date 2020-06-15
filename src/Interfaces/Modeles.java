@@ -5,21 +5,18 @@
  */
 package Interfaces;
 
-import bean.Agence;
-import bean.Client;
-import java.util.ArrayList;
+import bean.Marque;
+import bean.Modele;
 import java.util.List;
 
 /**
  *
  * @author farah
  */
-public interface Agences   extends java.rmi.Remote{
+public interface Modeles   extends java.rmi.Remote{
     
-    public Agence findByNom(String nom) throws java.rmi.RemoteException;
-    public List<Agence> findAll()throws java.rmi.RemoteException;
-   
-
+  public List<Modele> findAll()throws java.rmi.RemoteException;
+  public Modele findByNom(String nom) throws java.rmi.RemoteException;
     
 
             

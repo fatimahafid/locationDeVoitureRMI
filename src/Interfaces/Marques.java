@@ -7,6 +7,7 @@ package Interfaces;
 
 import bean.Agence;
 import bean.Client;
+import bean.Marque;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +15,9 @@ import java.util.List;
  *
  * @author farah
  */
-public interface Agences   extends java.rmi.Remote{
+public interface Marques   extends java.rmi.Remote{
     
-    public Agence findByNom(String nom) throws java.rmi.RemoteException;
-    public List<Agence> findAll()throws java.rmi.RemoteException;
+    public Marque findByNom(String nom) throws java.rmi.RemoteException;
    
 
     

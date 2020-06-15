@@ -7,8 +7,10 @@ package Server;
 
 import Impl.AgencesImpl;
 import Impl.ClientsImpl;
+import Impl.MarquesImpl;
+import Impl.ModelesImpl;
 import Impl.UtilisateursImpl;
-import Interfaces.Utilisateurs;
+import Impl.VehiculesImpl;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
@@ -36,6 +38,16 @@ try{//creationde l OD
           //  enregistrement de l OD utilisateur dans RMI
             Naming.rebind("agencetest", new AgencesImpl());
             System.out.println("L objet Distant ODAgence est enregistré dans RMI...Serveur Pret");
+            //  enregistrement de l OD vehicule dans RMI
+            Naming.rebind("vehiculetest", new VehiculesImpl());
+            System.out.println("L objet Distant ODvehicule est enregistré dans RMI...Serveur Pret");
+            //  enregistrement de l OD modele dans RMI
+            Naming.rebind("modeletest", new ModelesImpl());
+            System.out.println("L objet Distant ODmodele est enregistré dans RMI...Serveur Pret");
+            //  enregistrement de l OD marque dans RMI
+            Naming.rebind("marquetest", new MarquesImpl());
+            System.out.println("L objet Distant ODmarque est enregistré dans RMI...Serveur Pret");
+           
            
         
     }catch (Exception e){

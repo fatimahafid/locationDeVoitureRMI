@@ -5,10 +5,9 @@
  */
 package Impl;
 
-import Interfaces.Agences;
-import bean.Agence;
-import bean.Client;
-import bean.Utilisateur;
+import Interfaces.Modeles;
+import bean.Marque;
+import bean.Modele;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -21,17 +20,17 @@ import javax.persistence.Persistence;
  *
  * @author farah
  */
-public class AgencesImpl extends UnicastRemoteObject implements Agences {
+public class ModelesImpl extends UnicastRemoteObject implements Modeles {
 
-    List<Agence> agenceList;
+    List<Modele> odeleList;
     private EntityManager em;
-    private Class<Agence> entityClass;
+    private Class<Modele> entityClass;
 
-    public AgencesImpl() throws RemoteException {
+    public ModelesImpl() throws RemoteException {
 
         super();
 
-        List<Agence> agenceList = new ArrayList();
+        List<Modele> modeleList = new ArrayList();
 
     }
 
@@ -46,17 +45,16 @@ public class AgencesImpl extends UnicastRemoteObject implements Agences {
 
     
     @Override
-    public List<Agence> findAll() {
+    public List<Modele> findAll() {
      
-       return getEntityManager().createQuery("SELECT a.nom FROM Agence a").getResultList();
+       return getEntityManager().createQuery("SELECT m.marque.libelle FROM Modele m").getResultList();
      
     }
+
 
     @Override
-    public Agence findByNom(String nom) {
-        return (Agence) getEntityManager().createQuery("SELECT a FROM Agence a WHERE a.nom='" + nom + "'").getResultList().get(0);
+    public Modele findByNom(String nom) {
+     
+        return (Modele) getEntityManager().createQuery("SELECT m FROM Modele m WHERE m.marque.libelle= '" + nom + "'").getResultList().get(0);
     }
-
-
-   
 }

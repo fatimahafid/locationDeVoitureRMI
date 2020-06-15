@@ -14,7 +14,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
+import util.HashageUtil;
 
 /**
  *
@@ -49,18 +49,18 @@ public class UtilisateursImpl extends UnicastRemoteObject implements Utilisateur
     @Override
     public Utilisateur find(String login) throws RemoteException {
 
-        List<Utilisateur> clients = getEntityManager().createQuery("select u from Utilisateur u where u.login="+"'"+login+"'").getResultList();
+        List<Utilisateur> clients = getEntityManager().createQuery("select u from Utilisateur u where u.login=" + "'" + login + "'").getResultList();
 
         return clients.get(0);
     }
 
     @Override
     public int seConnecter(Utilisateur utilisateur) throws RemoteException {
-        Utilisateur loadedUtilisateur =  find(utilisateur.getLogin());
+        Utilisateur loadedUtilisateur = find(utilisateur.getLogin());
         if (loadedUtilisateur == null) {
             System.out.println("echec 1");
             return -1;
-        } else if (!loadedUtilisateur.getMdp().equals(utilisateur.getMdp())) {
+        } else if (!loadedUtilisateur.getMdp().equals(HashageUtil.sha256(utilisateur.getMdp()))) {
             System.out.println("echec 2");
             return -2;
         } else {
@@ -70,23 +70,24 @@ public class UtilisateursImpl extends UnicastRemoteObject implements Utilisateur
         }
 
     }
+
     @Override
-      public void create(Utilisateur entity) {
+    public void create(Utilisateur entity) {
         getEntityManager().getTransaction().begin();
         getEntityManager().persist(entity);
         getEntityManager().getTransaction().commit();
     }
-       @Override
-     public void createUtilisateur(Utilisateur utilisateur){
-         utilisateur.setMdp(utilisateur.getMdp());
-           create(utilisateur);
-     }
-     
-//          public int creerProduit(Long id, String nom ){
-//          Produit produit = new Produit();
-//          produit.setNom(nom);
-//          produit.setId(id);
-//          create(produit);
-//          return 1;
-//}
+
+    @Override
+    public void createUtilisateur(Utilisateur utilisateur) {
+        utilisateur.setMdp(HashageUtil.sha256(utilisateur.getMdp()));
+        create(utilisateur);
+    }
+
+    @Override
+    public List<Utilisateur> findAll() {
+
+        return getEntityManager().createQuery("SELECT u FROM Utilisateur u").getResultList();
+
+    }
 }

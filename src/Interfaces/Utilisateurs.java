@@ -23,6 +23,8 @@ public interface Utilisateurs extends java.rmi.Remote {
 
     public void createUtilisateur(Utilisateur utilisateur) throws java.rmi.RemoteException;
     
+    public List<Utilisateur> findAll()throws java.rmi.RemoteException;;
+    
   
     
             
