@@ -28,7 +28,7 @@ public class VehiculeFxHelper extends AbstractFxHelper<Vehicule>{
             new AbstractFxHelperItem("     PRIX        ","prix"),
             new AbstractFxHelperItem("     EST DISPONIBLE         ", "pris"),
             new AbstractFxHelperItem("     CARBURANT         ", "carburant"),
-            new AbstractFxHelperItem("     MODELE         ", "modele"),
+            new AbstractFxHelperItem("     MODELE         ", "modelenom"),
             
            
         };

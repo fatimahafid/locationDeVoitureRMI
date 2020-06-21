@@ -7,15 +7,19 @@ package TestRmi;
 
 import Interfaces.Agences;
 import Interfaces.Clients;
+import Interfaces.Locations;
 import Interfaces.Marques;
 import Interfaces.Modeles;
 import Interfaces.Utilisateurs;
 import Interfaces.Vehicules;
+import Interfaces.Villes;
+import Interfaces.Types;
 
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,6 +37,36 @@ public class Testrmi extends Application {
     public static Vehicules odVehicule;
     public static Modeles odModele;
     public static Marques odMarque;
+    public static Locations odLocation;
+    public static Villes odVille;
+    public static Types odType;
+
+    public static Types getOdType() {
+        return odType;
+    }
+
+    public static void setOdType(Types odType) {
+        Testrmi.odType = odType;
+    }
+
+    
+    public static Villes getOdVille() {
+        return odVille;
+    }
+
+    public static void setOdVille(Villes odVille) {
+        Testrmi.odVille = odVille;
+    }
+
+    public static Locations getOdLocation() {
+        return odLocation;
+    }
+
+    public static void setOdLocation(Locations odLocation) {
+        Testrmi.odLocation = odLocation;
+    }
+
+    
   
     public static Clients getOd() {
         return od;
@@ -91,7 +125,7 @@ public class Testrmi extends Application {
     public void start(Stage stage) throws IOException, RemoteException, NotBoundException {
       
      
-        Parent root = FXMLLoader.load(Testrmi.class.getClass().getResource("/locationdevoiture/VehiculeListFXML.fxml"));
+        Parent root = FXMLLoader.load(Testrmi.class.getClass().getResource("/locationdevoiture/login.fxml"));
       
         Scene scene = new Scene(root);
         
@@ -129,6 +163,18 @@ public class Testrmi extends Application {
             String url6="rmi://localhost/marquetest";
            odMarque = (Marques)Naming.lookup(url6);
              setOdMarque(odMarque);
+               //od location
+            String url7="rmi://localhost/locationtest";
+           odLocation = (Locations)Naming.lookup(url7);
+             setOdLocation(odLocation);
+               //od location
+            String url8="rmi://localhost/villetest";
+           odVille = (Villes)Naming.lookup(url8);
+             setOdVille(odVille);
+               //od type
+            String url9="rmi://localhost/typetest";
+           odType = (Types)Naming.lookup(url9);
+             setOdType(odType);
            
             launch(args);
         }

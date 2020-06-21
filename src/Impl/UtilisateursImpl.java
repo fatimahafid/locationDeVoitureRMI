@@ -6,6 +6,7 @@
 package Impl;
 
 import Interfaces.Utilisateurs;
+import bean.Agence;
 import bean.Utilisateur;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -90,4 +91,46 @@ public class UtilisateursImpl extends UnicastRemoteObject implements Utilisateur
         return getEntityManager().createQuery("SELECT u FROM Utilisateur u").getResultList();
 
     }
+
+    @Override
+    public void remove(Utilisateur entity) {
+        getEntityManager().getTransaction().begin();
+        getEntityManager().remove(getEntityManager().merge(entity));
+        getEntityManager().getTransaction().commit();
+    }
+
+    @Override
+    public void edit(Utilisateur entity) {
+        getEntityManager().getTransaction().begin();
+        getEntityManager().merge(entity);
+        getEntityManager().getTransaction().commit();
+
+    }
+
+    @Override
+    public List<Utilisateur> findByCriteriaUtilisateur(String login, String nom, String email, String agence) {
+        String query = "SELECT u From Utilisateur u WHERE 1=1";
+        if (login != null) {
+            query += " AND u.login='" + login + "'";
+        }
+        if (nom != null) {
+            query += "  AND u.nom='" + nom + "'";
+        }
+        if (email != null) {
+            query += " AND u.email='" + email + "'";
+        }
+        if (agence != null) {
+            query += " AND u.agence.nom='" + agence + "'";
+        }
+
+        return getEntityManager().createQuery(query).getResultList();
+    }
+
+    @Override
+    public List<Utilisateur> findAllUsers() throws RemoteException {
+        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        cq.select(cq.from(Utilisateur.class));
+        return getEntityManager().createQuery(cq).getResultList();
+    }
+
 }

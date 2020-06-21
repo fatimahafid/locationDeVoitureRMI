@@ -22,11 +22,14 @@ public interface Utilisateurs extends java.rmi.Remote {
     public void create(Utilisateur entity) throws java.rmi.RemoteException;
 
     public void createUtilisateur(Utilisateur utilisateur) throws java.rmi.RemoteException;
-    
-    public List<Utilisateur> findAll()throws java.rmi.RemoteException;;
-    
-  
-    
-            
-           
+
+    public List<Utilisateur> findAll() throws java.rmi.RemoteException;
+
+    public void remove(Utilisateur entity) throws java.rmi.RemoteException;
+
+    public void edit(Utilisateur entity) throws java.rmi.RemoteException;
+
+    public List<Utilisateur> findByCriteriaUtilisateur(String login, String nom, String email, String agence) throws java.rmi.RemoteException;
+public List<Utilisateur> findAllUsers()throws java.rmi.RemoteException;
+
 }

@@ -45,7 +45,7 @@
                               <Image url="@../images/menu16off.png" />
                            </image>
                         </ImageView>
-                        <AnchorPane layoutX="2.0" layoutY="428.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+                        <AnchorPane layoutX="2.0" layoutY="428.0" onMouseClicked="#handleLocation" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
                            <children>
                               <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="16.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -185,7 +185,7 @@
             <DropShadow blurType="GAUSSIAN" color="#d0c4c4" height="17.79" radius="6.172499999999999" width="8.9" />
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="-1.0" layoutY="270.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+      <AnchorPane layoutX="-1.0" layoutY="270.0" onMouseClicked="#handleAccueil" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
          <children>
             <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="20.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -195,7 +195,7 @@
             <Label layoutX="19.0" layoutY="35.0" text="Accueil" textFill="#263e80" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-2.0" layoutY="333.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+      <AnchorPane layoutX="-2.0" layoutY="333.0" onMouseClicked="#handleClients" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
          <children>
             <AnchorPane layoutX="-3.0" layoutY="-58.0" prefHeight="49.0" prefWidth="8.0" styleClass="border" />
             <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="18.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
@@ -206,7 +206,7 @@
             <Label layoutX="20.0" layoutY="36.0" text="Clients" textFill="#263e80" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-2.0" layoutY="396.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+      <AnchorPane layoutX="-2.0" layoutY="396.0" onMouseClicked="#handleAgence" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
          <children>
             <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="16.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -216,7 +216,7 @@
             <Label layoutX="17.0" layoutY="32.0" text="Agences" textFill="#263e80" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-3.0" layoutY="459.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+      <AnchorPane layoutX="-3.0" layoutY="459.0" onMouseClicked="#handleVehicule" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
          <children>
             <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="20.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -226,7 +226,7 @@
             <Label layoutX="16.0" layoutY="29.0" text="Véhicules" textFill="#263e80" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-2.0" layoutY="522.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+      <AnchorPane layoutX="-2.0" layoutY="522.0" onMouseClicked="#handleModele" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
          <children>
             <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="19.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
                <image>

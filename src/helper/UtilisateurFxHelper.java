@@ -19,19 +19,17 @@ import javafx.scene.control.TableView;
  */
 public class UtilisateurFxHelper extends AbstractFxHelper<Utilisateur>{
     private static AbstractFxHelperItem[] titres;
-  @FXML
-  private static JFXButton actionBtn;
+
     static {
 
         titres = new AbstractFxHelperItem[]{
-            new AbstractFxHelperItem("         LOGIN        ", "login"),
-             new AbstractFxHelperItem("       MOT DE PASSE        ", "mdp"),
-            new AbstractFxHelperItem("        NOM         ", "nom"),
-            new AbstractFxHelperItem("        PRENOM        ","prenom"),
-            new AbstractFxHelperItem("        EMAIL         ", "email"),
-            new AbstractFxHelperItem("        TEL         ", "tel"),
-            new AbstractFxHelperItem("        EST UN AGENT         ", "isAgent"),
-             new AbstractFxHelperItem("        AGENCE         ", "agence"),
+            new AbstractFxHelperItem("               LOGIN              ", "login"),
+            new AbstractFxHelperItem("              NOM              ", "nom"),
+            new AbstractFxHelperItem("              PRENOM             ","prenom"),
+            new AbstractFxHelperItem("             EMAIL              ", "email"),
+            new AbstractFxHelperItem("              TEL              ", "tel"),
+            new AbstractFxHelperItem("              EST UN AGENT           ", "isAgent"),
+             new AbstractFxHelperItem("              AGENCE              ", "agence"),
            
         };
     }
@@ -40,7 +38,6 @@ public class UtilisateurFxHelper extends AbstractFxHelper<Utilisateur>{
         super(titres, table, list);
     }
     
-
 
     public UtilisateurFxHelper(TableView table) {
         super(titres, table);

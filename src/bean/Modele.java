@@ -26,6 +26,8 @@ public class Modele implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String marquenom;
+    private String typenom;
     @OneToOne
     private Marque marque;
     @OneToOne
@@ -38,7 +40,25 @@ public class Modele implements Serializable {
     public Marque getMarque() {
         return marque;
     }
+    
 
+    public String getMarquenom() {
+        return marquenom;
+    }
+
+    public void setMarquenom() {
+        this.marquenom = this.getMarque().getLibelle();
+    }
+
+    public String getTypenom() {
+        return typenom;
+    }
+
+    public void setTypenom() {
+        this.typenom = this.getType().getLibelle();
+    }
+
+    
     public void setMarque(Marque marque) {
         this.marque = marque;
     }
@@ -78,12 +98,32 @@ public class Modele implements Serializable {
         this.id = id;
     }
 
+    public Modele(Marque marque, Type type) {
+        this.marque = marque;
+        this.type = type;
+         this.marquenom = this.getMarque().getLibelle();
+       this.typenom = this.getType().getLibelle();
+    }
+
     public Modele(Long id, Marque marque, Type type) {
         this.id = id;
         this.marque = marque;
         this.type = type;
         
     }
+
+    public Modele( String marquenom, String typenom, Marque marque, Type type) {
+        
+        this.marque = marque;
+        this.type = type;
+        this.marquenom = marquenom;
+        this.typenom = typenom;
+       this.marquenom = this.getMarque().getLibelle();
+       this.typenom = this.getType().getLibelle();
+
+
+    }
+    
 
     public Modele(Long id) {
         this.id = id;

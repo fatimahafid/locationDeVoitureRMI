@@ -45,10 +45,38 @@ public class MarquesImpl extends UnicastRemoteObject implements Marques {
 
     
    @Override
-    public Marque findByNom(String nom) {
+    public Marque findByLibelle(String nom) {
         return (Marque) getEntityManager().createQuery("SELECT m FROM Marque m WHERE m.libelle ='" + nom + "'").getResultList().get(0);
     }
 
 
-   
+   @Override
+    public List<Marque> findAll() {
+     
+       return getEntityManager().createQuery("SELECT m.libelle FROM Marque m").getResultList();
+     
+    }
+     @Override
+    public void remove(Marque entity) {
+        getEntityManager().getTransaction().begin();
+        getEntityManager().remove(getEntityManager().merge(entity));
+        getEntityManager().getTransaction().commit();
+    }
+    @Override
+    public void create(Marque entity) {
+        getEntityManager().getTransaction().begin();
+        getEntityManager().persist(entity);
+        getEntityManager().getTransaction().commit();
+    }
+
+    @Override
+    public void createMarque(Marque marque) {
+        create(marque);
+    }
+      @Override
+    public List<Marque> findAllMarques() throws RemoteException {
+ javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        cq.select(cq.from(Marque.class));
+        return getEntityManager().createQuery(cq).getResultList();
+    }
 }

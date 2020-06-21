@@ -38,6 +38,8 @@ public class Vehicule implements Serializable {
     private String carburant;
     @ManyToOne
     private Modele modele;
+    private String modelenom;
+    
     @OneToMany(mappedBy = "Vehicule")
     private List<Location> locations;
 
@@ -53,6 +55,15 @@ public class Vehicule implements Serializable {
         return carburant;
     }
 
+    public String getModelenom() {
+        return modelenom;
+    }
+
+    public void setModelenom() {
+        this.modelenom = this.getModele().getMarque().getLibelle()+"/"+this.getModele().getType().getLibelle();
+    }
+
+    
     public void setCarburant(String carburant) {
         this.carburant = carburant;
     }
@@ -119,6 +130,8 @@ public class Vehicule implements Serializable {
         this.dateMiseEncirculation = dateMiseEncirculation;
         this.kilometrage = kilometrage;
         this.prix = prix;
+        this.modelenom = this.getModele().getMarque().getLibelle()+"/"+this.getModele().getType().getLibelle();
+
     }
 
     public Vehicule( String numImm, Date dateMiseEncirculation, double kilometrage, double prix, boolean pris, String carburant, Modele modele) {
@@ -130,6 +143,8 @@ public class Vehicule implements Serializable {
         this.pris = pris;
         this.carburant = carburant;
         this.modele = modele;
+        this.modelenom = this.getModele().getMarque().getLibelle()+"/"+this.getModele().getType().getLibelle();
+
        
     }
     

@@ -35,8 +35,29 @@ public class Agence implements Serializable {
     private List<Location> locations;
     @ManyToOne
     private Ville ville;
+    private String villenom;
+
+    public Ville getVille() {
+        return ville;
+    }
+
+    public void setVille(Ville ville) {
+        this.ville = ville;
+    }
+
+    public String getVillenom() {
+        return villenom;
+    }
+
+    public void setVillenom() {
+        this.villenom = this.getVille().getLibelle();
+    }
+
+   
+
     
 
+    
     public String getAdr() {
         return adr;
     }
@@ -86,12 +107,16 @@ public class Agence implements Serializable {
         this.id = id;
     }
 
+    
+
     public Agence(Long id, String adr, String tel, String nom, String email) {
         this.id = id;
         this.adr = adr;
         this.tel = tel;
         this.nom = nom;
         this.email = email;
+       this.villenom = this.getVille().getLibelle();
+
     }
 
     public Agence(Long id) {
@@ -107,6 +132,18 @@ public class Agence implements Serializable {
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
+
+    public Agence( String adr, String tel, String nom, String email, Ville ville) {
+        this.id = id;
+        this.adr = adr;
+        this.tel = tel;
+        this.nom = nom;
+        this.email = email;
+        this.ville = ville;
+       this.villenom = this.getVille().getLibelle();
+    }
+    
+    
 
     @Override
     public boolean equals(Object object) {

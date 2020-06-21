@@ -49,7 +49,63 @@ protected EntityManager getEntityManager() {
 
         return clients.get(0).getNom();
     }
+     @Override
+    public List<Client> findAll() {
+        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        cq.select(cq.from(Client.class));
+        return getEntityManager().createQuery(cq).getResultList();
+    }
     
     
+    @Override
+    public void remove(Client entity) {
+        getEntityManager().getTransaction().begin();
+        getEntityManager().remove(getEntityManager().merge(entity));
+        getEntityManager().getTransaction().commit();
+    }
     
+     @Override
+    public void create(Client entity) {
+        getEntityManager().getTransaction().begin();
+        getEntityManager().persist(entity);
+        getEntityManager().getTransaction().commit();
+    }
+
+    @Override
+    public void createClient(Client client) {
+        create(client);
+    }
+    
+    @Override
+     public List<Client> findByCriteriaClient(String nom, String prenom, String cin, String tel,Long point){
+          String query="SELECT c From Client c WHERE 1=1";
+          if(nom!= null){
+              query+=" AND c.nom='"+nom+"'";
+          }
+          if(tel!= null){
+              query+="  AND c.tel='"+tel+"'";
+          }
+            if(prenom!= null){
+              query+=" AND c.prenom='"+prenom+"'"; 
+          }
+              if(cin!= null){
+              query+=" AND c.cin='"+cin+"'";
+          }
+                 if(point!= null){
+              query+=" AND c.point='"+point+"'";
+          }
+              
+          return getEntityManager().createQuery(query).getResultList();
+      } 
+     @Override
+    public Client findByCin(String cin) {
+        return (Client) getEntityManager().createQuery("SELECT c FROM Client c WHERE c.cin ='" + cin + "'").getResultList().get(0);
+    }
+
+    @Override
+    public void edit(Client entity) throws RemoteException {
+      getEntityManager().getTransaction().begin();
+        getEntityManager().merge(entity);
+        getEntityManager().getTransaction().commit();
+    }
 }

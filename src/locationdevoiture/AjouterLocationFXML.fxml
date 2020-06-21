@@ -44,7 +44,7 @@
                               <Image url="@../images/menu16off.png" />
                            </image>
                         </ImageView>
-                        <AnchorPane layoutX="2.0" layoutY="428.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+                        <AnchorPane layoutX="2.0" layoutY="428.0" onMouseClicked="#handleLocation" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
                            <children>
                               <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="16.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -92,18 +92,18 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="nomTextField" layoutX="139.0" layoutY="104.0" maxWidth="304.0" minWidth="205.0" prefHeight="35.0" prefWidth="304.0" promptText="CIN Client">
+                        <JFXTextField fx:id="cinTf" layoutX="139.0" layoutY="104.0" maxWidth="304.0" minWidth="205.0" prefHeight="35.0" prefWidth="304.0" promptText="CIN Client">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="nomTextField1111" disable="true" layoutX="687.0" layoutY="438.0" maxWidth="304.0" minWidth="205.0" prefHeight="35.0" prefWidth="268.0" promptText="Montant à payer">
+                        <JFXTextField fx:id="montantTf" disable="true" layoutX="670.0" layoutY="438.0" maxWidth="304.0" minWidth="205.0" prefHeight="35.0" prefWidth="268.0" promptText="Montant à payer">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </JFXTextField>
-                        <JFXDatePicker defaultColor="#0c2751" layoutX="653.0" layoutY="175.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Début Réél Location" />
-                        <JFXButton layoutX="508.0" layoutY="476.0" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #2262C6;" text="Ajouter" textFill="WHITE" />
+                        <JFXDatePicker fx:id="datedebreelDp" defaultColor="#0c2751" layoutX="653.0" layoutY="175.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Début Réél Location" />
+                        <JFXButton fx:id="ajouterBtn" layoutX="508.0" layoutY="476.0" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #2262C6;" text="Ajouter" textFill="WHITE" />
                         <ImageView fitHeight="26.0" fitWidth="19.0" layoutX="121.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/user%20(3).png" />
@@ -114,7 +114,7 @@
                               <Image url="@../images/agences.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="26.0" fitWidth="19.0" layoutX="665.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="26.0" fitWidth="19.0" layoutX="652.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/money.png" />
                            </image>
@@ -124,27 +124,27 @@
                               <Image url="@../images/deals.png" />
                            </image>
                         </ImageView>
-                        <JFXComboBox layoutX="147.0" layoutY="172.0" prefHeight="25.0" prefWidth="286.0" promptText="Agence" />
+                        <JFXComboBox fx:id="agenceCb" layoutX="147.0" layoutY="172.0" prefHeight="25.0" prefWidth="286.0" promptText="Agence" />
                         <ImageView fitHeight="26.0" fitWidth="19.0" layoutX="122.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/speed.png" />
                            </image>
                         </ImageView>
-                        <JFXComboBox layoutX="148.0" layoutY="242.0" prefHeight="25.0" prefWidth="286.0" promptText="Modèle" />
+                        <JFXComboBox fx:id="ModeleCb" layoutX="148.0" layoutY="242.0" prefHeight="25.0" prefWidth="286.0" promptText="Modèle" />
                         <ImageView fitHeight="26.0" fitWidth="19.0" layoutX="123.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/car.png" />
                            </image>
                         </ImageView>
-                        <JFXComboBox layoutX="149.0" layoutY="309.0" prefHeight="25.0" prefWidth="286.0" promptText="Véhicule" />
-                        <JFXDatePicker defaultColor="#0c2751" layoutX="139.0" layoutY="378.0" prefHeight="31.0" prefWidth="301.0" promptText="Date de Réservation" />
-                        <JFXDatePicker defaultColor="#0c2751" layoutX="651.0" layoutY="110.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Fin Location" />
-                        <JFXDatePicker defaultColor="#0c2751" layoutX="141.0" layoutY="443.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Début Location" />
-                        <JFXDatePicker defaultColor="#0c2751" layoutX="655.0" layoutY="314.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Paiement Prévu" />
-                        <JFXDatePicker defaultColor="#0c2751" layoutX="657.0" layoutY="379.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Paiement Effectif" />
+                        <JFXComboBox fx:id="vehiculeCb" layoutX="149.0" layoutY="309.0" prefHeight="25.0" prefWidth="286.0" promptText="Véhicule" />
+                        <JFXDatePicker fx:id="dateresDp" defaultColor="#0c2751" layoutX="139.0" layoutY="378.0" prefHeight="31.0" prefWidth="301.0" promptText="Date de Réservation" />
+                        <JFXDatePicker fx:id="datefinlocDp" defaultColor="#0c2751" layoutX="651.0" layoutY="110.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Fin Location" />
+                        <JFXDatePicker fx:id="datedeblocDp" defaultColor="#0c2751" layoutX="141.0" layoutY="443.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Début Location" />
+                        <JFXDatePicker fx:id="datepaiprevuDp" defaultColor="#0c2751" layoutX="655.0" layoutY="314.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Paiement Prévu" />
+                        <JFXDatePicker fx:id="datepaieffDp" defaultColor="#0c2751" layoutX="657.0" layoutY="379.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Paiement Effectif" />
                      </children>
                   </AnchorPane>
-                  <JFXDatePicker defaultColor="#0c2751" layoutX="654.0" layoutY="224.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Fin Réél Location" />
+                  <JFXDatePicker fx:id="datefinreelDp" defaultColor="#0c2751" layoutX="654.0" layoutY="224.0" prefHeight="31.0" prefWidth="301.0" promptText="Date Fin Réél Location" />
                </children>
             </AnchorPane>
          </children>
@@ -152,7 +152,7 @@
             <DropShadow blurType="GAUSSIAN" color="#d0c4c4" height="17.79" radius="6.172499999999999" width="8.9" />
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="-1.0" layoutY="270.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+      <AnchorPane layoutX="-1.0" layoutY="270.0" onMouseClicked="#handleAccueil" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
          <children>
             <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="20.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -162,7 +162,7 @@
             <Label layoutX="19.0" layoutY="35.0" text="Accueil" textFill="#263e80" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-2.0" layoutY="333.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+      <AnchorPane layoutX="-2.0" layoutY="333.0" onMouseClicked="#handleClients" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
          <children>
             <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="18.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -172,7 +172,7 @@
             <Label layoutX="20.0" layoutY="36.0" text="Clients" textFill="#263e80" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-2.0" layoutY="396.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+      <AnchorPane layoutX="-2.0" layoutY="396.0" onMouseClicked="#handleAgence" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
          <children>
             <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="16.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -182,7 +182,7 @@
             <Label layoutX="17.0" layoutY="32.0" text="Agences" textFill="#263e80" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-3.0" layoutY="459.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+      <AnchorPane layoutX="-3.0" layoutY="459.0" onMouseClicked="#handleVehicule" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
          <children>
             <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="20.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -192,7 +192,7 @@
             <Label layoutX="16.0" layoutY="29.0" text="Véhicules" textFill="#263e80" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-2.0" layoutY="522.0" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
+      <AnchorPane layoutX="-2.0" layoutY="522.0" onMouseClicked="#handleModele" prefHeight="49.0" prefWidth="75.0" styleClass="menuarea">
          <children>
             <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="19.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
                <image>

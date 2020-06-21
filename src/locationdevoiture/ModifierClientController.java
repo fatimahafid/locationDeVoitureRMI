@@ -5,48 +5,69 @@
  */
 package locationdevoiture;
 
-import Interfaces.Locations;
+import Interfaces.Clients;
 import TestRmi.Testrmi;
-import bean.Location;
+import bean.Client;
 import com.jfoenix.controls.JFXButton;
-import helper.LocationFxHelper;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
-import javax.swing.JOptionPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author fatima
+ * @author farah
  */
-public class LocationListeFXMLController implements Initializable {
-  @FXML
-    private JFXButton ajouterbtn;
- @FXML
-    private JFXButton sup;
-     @FXML
-     private TableView tab;
- private LocationFxHelper locationFxHelper;
-List<bean.Location> locations = new ArrayList<>();
-   Locations  odLocations = Testrmi.odLocation;
+public class ModifierClientController implements Initializable {
+@FXML
+    private JFXButton modifierBtn;
+    @FXML
+    private JFXTextField nomTf;
+    @FXML
+    private JFXTextField prenomTf;
+    @FXML
+    private JFXTextField cinTf;
+    @FXML
+    private JFXTextField adresseTf;
+    @FXML
+    private JFXTextField emailTf;
+    @FXML
+    private JFXTextField telTf;
+    @FXML
+    private JFXTextField numpermisTf;
+    @FXML
+    private JFXTextField pointTf;
+    
+   
+    Clients odClients = Testrmi.od;
+    public Client client=new Client();    
+      void initData(Client c) {
+        System.out.println("c : "+c.getNom());    
+        this.client=c;
+         System.out.println("client : "+client.getNom());    
+
+   
+
+ }
+
     /**
      * Initializes the controller class.
      */
-   public void handleAccueil(MouseEvent event) {
+      public void handleAccueil(MouseEvent event) {
 
         Parent root;
         try {
@@ -136,62 +157,68 @@ List<bean.Location> locations = new ArrayList<>();
             e.printStackTrace();
         }
     }
-     public void handleAjouter(MouseEvent event) {
-           
-               Parent root;
-                try {
-                    root = FXMLLoader.load(getClass().getClassLoader().getResource("locationdevoiture/AjouterLocationFXML.fxml"));
-                    javafx.stage.Stage stage = new javafx.stage.Stage();
-                    stage.setTitle("Ajouter");
-                    stage.setScene(new Scene(root));
-                    stage.show();
-                    // Hide this current window (if this is what you want)
-                    ((Node) (event.getSource())).getScene().getWindow().hide();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-         ajouterbtn.setOnMouseClicked(( e ) ->
-            {
-                   handleAjouter(e);
-            });
-          try {
-            locations=odLocations.findAll() ;
-        } catch (RemoteException ex) {
-            Logger.getLogger(LocationListeFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-                System.out.println("this is size test :"+locations.size()); 
-
-        if(!locations.isEmpty())   { 
-       locationFxHelper  = new LocationFxHelper(tab, locations);
-       System.out.println("khkhkh"+locations.size()+locations.get(0).getId()); 
-
-        }
-        
-         sup.setOnMouseClicked(( e ) ->
-            {System.out.println("delete test"); 
-            try {
-
-               Location selectedItem = (Location) tab.getSelectionModel().getSelectedItem();
-             if(selectedItem!=null){
- 
-               tab.getItems().remove(selectedItem);
-                odLocations.remove(selectedItem);
-                System.out.println(selectedItem);
-                JOptionPane.showMessageDialog(null, "Suppression avec succée", "", 1);
-             }else
-           JOptionPane.showMessageDialog(null, "Vous devez selectionner une ligne", "", 1);
-
-            } catch (RemoteException ex) {
-                Logger.getLogger(LocationListeFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            });
+        System.out.println("in controller");
+      
+    Platform.runLater(() -> {
+            System.out.println("Running Later");
+            nomTf.setText(client.getNom());
+        prenomTf.setText(client.getPrenom());
+        cinTf.setText(client.getCin());
+        emailTf.setText(client.getEmail());
+        telTf.setText(client.getTel());
+        adresseTf.setText(client.getAdr());
+          
+    
+    
+     modifierBtn.setOnAction((event) -> {
+            
+            client.setAdr(adresseTf.getText());
+            client.setCin(cinTf.getText());
+            client.setEmail(emailTf.getText());
+            client.setNom(nomTf.getText());
+            client.setPrenom(prenomTf.getText());
+            client.setTel(telTf.getText());
+            client.setPoint(Long.valueOf(pointTf.getText()));
+                try {
+                    odClients.edit(client);
+                } catch (RemoteException ex) {
+                    Logger.getLogger(ModifierClientController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
+            
+            
+            
+             Parent root;
+                        try {
+                            root = FXMLLoader.load(getClass().getClassLoader().getResource("locationdevoiture/ClientList.fxml"));
+                            Stage stage = new Stage();
+                            stage.setTitle("apresModificationClient");
+                            stage.setScene(new Scene(root));
+                            stage.show();
+                            // Hide this current window 
+                            ((Node) (event.getSource())).getScene().getWindow().hide();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+          
+        });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    });
+       
         
     }    
+
+  
     
 }

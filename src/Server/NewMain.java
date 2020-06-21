@@ -7,10 +7,13 @@ package Server;
 
 import Impl.AgencesImpl;
 import Impl.ClientsImpl;
+import Impl.LocationsImpl;
 import Impl.MarquesImpl;
 import Impl.ModelesImpl;
+import Impl.TypesImpl;
 import Impl.UtilisateursImpl;
 import Impl.VehiculesImpl;
+import Impl.VilleImpl;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
@@ -47,6 +50,15 @@ try{//creationde l OD
             //  enregistrement de l OD marque dans RMI
             Naming.rebind("marquetest", new MarquesImpl());
             System.out.println("L objet Distant ODmarque est enregistré dans RMI...Serveur Pret");
+             //  enregistrement de l OD marque dans RMI
+            Naming.rebind("locationtest", new LocationsImpl());
+            System.out.println("L objet Distant ODlocation est enregistré dans RMI...Serveur Pret");
+             //  enregistrement de l OD marque dans RMI
+            Naming.rebind("villetest", new VilleImpl());
+            System.out.println("L objet Distant ODville est enregistré dans RMI...Serveur Pret");
+             //  enregistrement de l OD type dans RMI
+            Naming.rebind("typetest", new TypesImpl());
+            System.out.println("L objet Distant ODtype est enregistré dans RMI...Serveur Pret");
            
            
         

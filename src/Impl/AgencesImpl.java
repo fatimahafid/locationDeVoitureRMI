@@ -16,6 +16,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import util.HashageUtil;
 
 /**
  *
@@ -57,6 +58,48 @@ public class AgencesImpl extends UnicastRemoteObject implements Agences {
         return (Agence) getEntityManager().createQuery("SELECT a FROM Agence a WHERE a.nom='" + nom + "'").getResultList().get(0);
     }
 
+@Override
+    public List<Agence> findAllAgences() throws RemoteException {
+         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        cq.select(cq.from(Agence.class));
+        return getEntityManager().createQuery(cq).getResultList();
+    }
 
-   
+    
+    @Override
+    public void remove(Agence entity) {
+        getEntityManager().getTransaction().begin();
+        getEntityManager().remove(getEntityManager().merge(entity));
+        getEntityManager().getTransaction().commit();
+    }
+    @Override
+    public void create(Agence entity) {
+        getEntityManager().getTransaction().begin();
+        getEntityManager().persist(entity);
+        getEntityManager().getTransaction().commit();
+    }
+
+    @Override
+    public void createAgence(Agence agence) {
+        create(agence);
+    }
+    
+    @Override
+     public List<Agence> findByCriteriaAgence(String nom, String tel, String adresse, String mail){
+          String query="SELECT a From Agence a WHERE 1=1";
+          if(nom!= null){
+              query+=" AND a.nom='"+nom+"'";
+          }
+          if(tel!= null){
+              query+="  AND a.tel='"+tel+"'";
+          }
+            if(mail!= null){
+              query+=" AND a.email='"+mail+"'"; 
+          }
+              if(adresse!= null){
+              query+=" AND a.adr='"+adresse+"'";
+          }
+              
+          return getEntityManager().createQuery(query).getResultList();
+      } 
 }

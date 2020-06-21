@@ -41,14 +41,61 @@ public class Location implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date datePaiementEffectif;
     @ManyToOne
-    private Modele modele;
+    private Modele modele; 
+    
+   private String modelenom;
+
+  
     @ManyToOne
-    private Vehicule Vehicule;
+    private Vehicule vehicule;
+    private String vehiculenom;
+
     @ManyToOne
     private Client client;
+        private String clientnom;
+
     @ManyToOne
     private Agence agence;
+        private String agencenom;
 
+    public String getModelenom() {
+        return modelenom;
+    }
+
+    public void setModelenom() {
+        this.modelenom = this.getModele().getMarque().getLibelle()+"/"+this.getModele().getType().getLibelle();
+    }
+
+  
+        
+        
+    public String getVehiculenom() {
+        return vehiculenom;
+    }
+
+    public void setVehiculenom() {
+        this.vehiculenom = this.vehicule.getNumImm();
+    }
+
+    public String getClientnom() {
+        return clientnom;
+    }
+
+    public void setClientnom() {
+        this.clientnom = this.getClient().getNom()+" "+this.getClient().getNom();
+    }
+
+    public String getAgencenom() {
+        return agencenom;
+    }
+
+    public void setAgencenom() {
+        this.agencenom = this.getAgence().getNom();
+    }
+
+
+        
+        
     public Date getDateReservation() {
         return dateReservation;
     }
@@ -122,11 +169,11 @@ public class Location implements Serializable {
     }
 
     public Vehicule getVehicule() {
-        return Vehicule;
+        return vehicule;
     }
 
-    public void setVehicule(Vehicule Vehicule) {
-        this.Vehicule = Vehicule;
+    public void setVehicule(Vehicule vehicule) {
+        this.vehicule = vehicule;
     }
 
     public Client getClient() {
@@ -157,7 +204,7 @@ public class Location implements Serializable {
         this.id = id;
     }
 
-    public Location(Long id, Date dateReservation, Date dateDebutLoc, Date dateFinLoc, Date dateDebutReelLoc, Date dateFinReelLoc, double mtnLoc, Date datePaiementPrevu, Date datePaiementEffectif) {
+    public Location( Date dateReservation, Date dateDebutLoc, Date dateFinLoc, Date dateDebutReelLoc, Date dateFinReelLoc, double mtnLoc, Date datePaiementPrevu, Date datePaiementEffectif) {
         this.id = id;
         this.dateReservation = dateReservation;
         this.dateDebutLoc = dateDebutLoc;
@@ -167,6 +214,31 @@ public class Location implements Serializable {
         this.mtnLoc = mtnLoc;
         this.datePaiementPrevu = datePaiementPrevu;
         this.datePaiementEffectif = datePaiementEffectif;
+       this.modelenom = this.getModele().getMarque().getLibelle()+"/"+this.getModele().getType().getLibelle();
+        this.agencenom = this.getAgence().getNom();
+        this.vehiculenom=this.getVehicule().getModelenom();
+        this.clientnom = this.getClient().getNom() +" " +this.getClient().getNom();
+
+
+    }
+
+    public Location(Date dateReservation, Date dateDebutLoc, Date dateFinLoc, Date dateDebutReelLoc, Date dateFinReelLoc, double mtnLoc, Date datePaiementPrevu, Date datePaiementEffectif,  Modele  modele,  Vehicule vehicule,  Client client ,  Agence agence) {
+        this.dateReservation = dateReservation;
+        this.dateDebutLoc = dateDebutLoc;
+        this.dateFinLoc = dateFinLoc;
+        this.dateDebutReelLoc = dateDebutReelLoc;
+        this.dateFinReelLoc = dateFinReelLoc;
+        this.mtnLoc = mtnLoc;
+        this.datePaiementPrevu = datePaiementPrevu;
+        this.datePaiementEffectif = datePaiementEffectif;
+        this.modele = modele;
+        this.client = client;   
+        this.agence = agence; 
+        this.vehicule= vehicule;
+         this.modelenom = this.getModele().getMarque().getLibelle()+"/"+this.getModele().getType().getLibelle();
+        this.agencenom = this.getAgence().getNom();
+        this.vehiculenom=this.getVehicule().getModelenom();
+        this.clientnom = this.getClient().getNom() +" " +this.getClient().getNom();
     }
 
     public Location(Long id) {

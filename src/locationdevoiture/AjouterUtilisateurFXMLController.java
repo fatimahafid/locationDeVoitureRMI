@@ -29,6 +29,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -59,14 +60,104 @@ public class AjouterUtilisateurFXMLController implements Initializable {
     private JFXComboBox agenceCb;
     @FXML
     private JFXRadioButton geRb;
+    
     private Agence agence = null;
-
     Utilisateurs odUtilisateurs = Testrmi.odUtilisateur;
     Agences odAgences = Testrmi.odAgence;
 
     /**
      * Initializes the controller class.
      */
+    public void handleAccueil(MouseEvent event) {
+
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("locationdevoiture/Menu.fxml"));
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Ajouter");
+            stage.setScene(new Scene(root));
+            stage.show();
+            // Hide this current window (if this is what you want)
+            ((Node) (event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void handleClients(MouseEvent event) {
+
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("locationdevoiture/ClientList.fxml"));
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Ajouter");
+            stage.setScene(new Scene(root));
+            stage.show();
+            // Hide this current window (if this is what you want)
+            ((Node) (event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void handleAgence(MouseEvent event) {
+
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("locationdevoiture/AgenceListFXML.fxml"));
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Ajouter");
+            stage.setScene(new Scene(root));
+            stage.show();
+            // Hide this current window (if this is what you want)
+            ((Node) (event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void handleVehicule(MouseEvent event) {
+
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("locationdevoiture/VehiculeListFXML.fxml"));
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Ajouter");
+            stage.setScene(new Scene(root));
+            stage.show();
+            // Hide this current window (if this is what you want)
+            ((Node) (event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void handleModele(MouseEvent event) {
+
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("locationdevoiture/ModeleListFXML.fxml"));
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Ajouter");
+            stage.setScene(new Scene(root));
+            stage.show();
+            // Hide this current window (if this is what you want)
+            ((Node) (event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void handleLocation(MouseEvent event) {
+
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("locationdevoiture/LocationListeFXML.fxml"));
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Ajouter");
+            stage.setScene(new Scene(root));
+            stage.show();
+            // Hide this current window (if this is what you want)
+            ((Node) (event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 

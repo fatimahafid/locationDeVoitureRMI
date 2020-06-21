@@ -134,6 +134,16 @@ public class Client implements Serializable {
         this.point=Long.valueOf(5);
     }
 
+    public Client(String nom, String prenom, String cin, String adr, String tel, String email, Long point) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.cin = cin;
+        this.adr = adr;
+        this.tel = tel;
+        this.email = email;
+        this.point = point;
+    }
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
