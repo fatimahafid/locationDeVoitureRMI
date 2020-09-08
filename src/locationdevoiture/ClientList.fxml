@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="669.0" prefWidth="1282.0" styleClass="mainFxmlClass" stylesheets="@menu2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="locationdevoiture.ClientListController">
+<AnchorPane id="AnchorPane" prefHeight="669.0" prefWidth="1282.0" styleClass="mainFxmlClass" stylesheets="@menu2.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="locationdevoiture.ClientListController">
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="684.0" prefWidth="1286.0" styleClass="bg" stylesheets="@menu2.css">
          <children>
@@ -24,11 +24,6 @@
                      </font>
                   </Label>
                   <AnchorPane layoutX="878.0" prefHeight="87.0" prefWidth="313.0" styleClass="rightsidetop" visible="false" />
-                  <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="1191.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/rounduser.png" />
-                     </image>
-                  </ImageView>
                </children>
                <effect>
                   <DropShadow color="#a49b9b" height="4.57" radius="16.21" width="62.27" />
@@ -205,7 +200,7 @@
                            </image>
                         </ImageView>
                         <JFXButton fx:id="sup" layoutX="1080.0" layoutY="76.0" prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: darkred;" text="-" textFill="WHITE" />
-                        <JFXButton fx:id="modifier" layoutX="941.0" layoutY="26.0" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: darkred;" text="MODIFIER" textFill="WHITE" />
+                        <JFXButton fx:id="modifier" layoutX="948.0" layoutY="26.0" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: darkred;" text="MODIFIER" textFill="WHITE" />
                      </children>
                   </AnchorPane>
                </children>

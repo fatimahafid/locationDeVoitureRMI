@@ -23,11 +23,6 @@
                      </font>
                   </Label>
                   <AnchorPane layoutX="878.0" prefHeight="87.0" prefWidth="313.0" styleClass="rightsidetop" visible="false" />
-                  <ImageView fitHeight="43.0" fitWidth="42.0" layoutX="1101.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/rounduser.png" />
-                     </image>
-                  </ImageView>
                </children>
                <effect>
                   <DropShadow color="#a49b9b" height="4.57" radius="16.21" width="62.27" />

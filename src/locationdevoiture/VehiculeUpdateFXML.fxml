@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="locationdevoiture.VehiculeUpdateFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="locationdevoiture.VehiculeUpdateFXMLController">
     <children>
       <AnchorPane layoutY="-3.0" prefHeight="684.0" prefWidth="1286.0" styleClass="bg" stylesheets="@menu2.css">
          <children>
@@ -24,11 +24,6 @@
                      </font>
                   </Label>
                   <AnchorPane layoutX="878.0" prefHeight="87.0" prefWidth="313.0" styleClass="rightsidetop" visible="false" />
-                  <ImageView fitHeight="43.0" fitWidth="42.0" layoutX="1101.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/rounduser.png" />
-                     </image>
-                  </ImageView>
                </children>
                <effect>
                   <DropShadow color="#a49b9b" height="4.57" radius="16.21" width="62.27" />
